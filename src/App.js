@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
+import "./App.css";
+import Builder from "./container/Builder";
 
-import Root from './components/Root'
-import Counter from './components/Counter'
-
-import {articles} from './fixtures'
-
+import BelkaApp from "./Belka/BelkaApp";
+import { Toggle } from "./Patterns/ex1";
+import TodoList from "./components/TodoList";
 
 class App extends Component {
   render() {
     return (
-	      <div>
-          <Counter />
-          <Root articles={articles} />
-		  </div>
-
+      <div className="App">
+        <header className="App-header">some text from APP</header>
+        <TodoList />
+        <Builder />
+        <Toggle />
+        <BelkaApp />
+      </div>
     );
   }
 }
