@@ -1,4 +1,4 @@
-import { articles } from "../Belka/mocks/comments-belka";
+import { normalizedArticles as articles } from "../Belka/mocks/comments-belka";
 import { DELETE_ARTICLE, SET_ARTICLES } from "../actionTypes";
 //console.log(articles);
 

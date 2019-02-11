@@ -22,11 +22,7 @@ class CommentList extends Component {
           {text}
         </button>
 
-        {opened
-          ? comments.map(comment => (
-              <Comment comment={comment} key={comment.id} />
-            ))
-          : null}
+        {opened ? comments.map(id => <Comment id={id} key={id} />) : null}
       </div>
     );
   }
