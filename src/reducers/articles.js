@@ -5,7 +5,7 @@ import { DELETE_ARTICLE, SET_ARTICLES } from "../actionTypes";
 function articlesReducer(state = { articles }, action) {
   switch (action.type) {
     case SET_ARTICLES: {
-      return { ...state, articles: action.articles };
+      return action.articles;
     }
 
     case DELETE_ARTICLE: {

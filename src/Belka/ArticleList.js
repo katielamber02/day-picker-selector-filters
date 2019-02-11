@@ -11,35 +11,29 @@ import {
   getComments,
   remove
 } from "../actions/action-index";
+import { filteredArticlesSelector } from "../selectors";
 
 class ArticleList extends Component {
   componentDidMount() {
     //this.props.initializeArticlesinDB();
-    this.props.getArticles();
+    //this.props.getArticles();
     //this.props.getComments();
   }
 
   render() {
-    const {
-      openedId,
-      toggleOpenEl,
-      articles,
-      onRemove,
-      dateRange,
-      selected
-    } = this.props;
+    const { openedId, toggleOpenEl, articles, onRemove } = this.props;
 
-    const { from, to } = dateRange;
+    //const { from, to } = dateRange;
 
-    const filteredArticles = articles.filter(article => {
-      const published = Date.parse(article.date);
-      return (
-        (!selected || !selected.length || selected.includes(article.id)) &&
-        (!from || !to || (published > from && published < to))
-      );
-    });
+    // const filteredArticles = articles.filter(article => {
+    //   const published = Date.parse(article.date);
+    //   return (
+    //     (!selected || !selected.length || selected.includes(article.id)) &&
+    //     (!from || !to || (published > from && published < to))
+    //   );
+    // });
 
-    const articleElements = filteredArticles.map(article => (
+    const articleElements = articles.map(article => (
       <div key={article.id}>
         <Article
           article={article}
@@ -60,11 +54,12 @@ class ArticleList extends Component {
     );
   }
 }
-const mapStateToProps = ({ articles, dateRange, selected }) => {
+const mapStateToProps = state => {
+  console.log(state);
   return {
-    articles: articles.articles,
-    dateRange: dateRange,
-    selected: selected
+    articles: filteredArticlesSelector(state)
+    //dateRange: dateRange,
+    //selected: selected
   };
 };
 const mapDispatchToProps = dispatch => {
