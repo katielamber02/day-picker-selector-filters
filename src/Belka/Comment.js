@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { commentSelector } from "../selectors";
+import { commentSelectorFactory } from "../selectors";
 
 class Comment extends Component {
   render() {
@@ -14,9 +14,12 @@ class Comment extends Component {
     );
   }
 }
-const mapStateToProps = (state, ownProps) => {
-  return {
-    comment: commentSelector(state, ownProps)
+const mapStateToProps = () => {
+  const commentSelector = commentSelectorFactory();
+  return (state, ownProps) => {
+    return {
+      comment: commentSelector(state, ownProps)
+    };
   };
 };
 export default connect(mapStateToProps)(Comment);
