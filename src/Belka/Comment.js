@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { commentSelector } from "../selectors";
 
 class Comment extends Component {
   render() {
@@ -14,9 +15,8 @@ class Comment extends Component {
   }
 }
 const mapStateToProps = (state, ownProps) => {
-  console.log("ownProps", ownProps);
   return {
-    comment: state.comments.find(comment => comment.id === ownProps.id)
+    comment: commentSelector(state, ownProps)
   };
 };
 export default connect(mapStateToProps)(Comment);
