@@ -1,4 +1,4 @@
-import { SET_DATE, RESET, DELETE_ARTICLE } from "../actionTypes";
+import { SET_DATE, RESET } from "../actionTypes";
 
 function dateRangeReducer(state = { from: null, to: null }, action) {
   const { type } = action;
@@ -13,9 +13,6 @@ function dateRangeReducer(state = { from: null, to: null }, action) {
     case RESET:
       console.log((state = { from: null, to: null }));
       return { from: null, to: null };
-
-    case DELETE_ARTICLE:
-      return [...state, state.filter(id => id !== action.payload.id)];
 
     default:
       return state;

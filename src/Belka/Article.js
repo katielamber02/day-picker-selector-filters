@@ -16,9 +16,16 @@ function Article(props) {
         <button
           onClick={props.toggleOpen}
           className="button"
-          style={{ fontSize: "2em" }}
+          style={{ fontSize: "1.5em" }}
         >
-          {props.opened ? "close article text" : "open article text"}
+          {props.opened ? "close " : "open "}
+        </button>
+        <button
+          onClick={props.remove}
+          className="button"
+          style={{ fontSize: "1.5em", color: "red" }}
+        >
+          del
         </button>
 
         {props.opened ? (

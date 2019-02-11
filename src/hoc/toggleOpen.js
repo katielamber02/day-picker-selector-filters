@@ -11,6 +11,7 @@ export default OriginalComponent =>
         opened: !this.state.opened
       });
     };
+
     render() {
       return (
         <OriginalComponent

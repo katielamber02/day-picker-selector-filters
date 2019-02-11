@@ -12,7 +12,7 @@ class Builder extends Component {
   };
   componentWillMount() {
     //this.props.fetchOrders();
-    this.props.getOrders();
+    //this.props.getOrders();
   }
 
   purchaseHandler = () => {

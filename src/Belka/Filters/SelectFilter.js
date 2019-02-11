@@ -12,7 +12,7 @@ class SelectFilter extends Component {
   };
   render() {
     const { selected, articles } = this.props;
-    console.log("selected", selected);
+    //console.log("selected", selected);
 
     const options = articles.map(article => {
       return {
