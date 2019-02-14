@@ -1,7 +1,6 @@
 import React from "react";
 import CommentList from "./CommentList";
 import { CSSTransitionGroup } from "react-transition-group";
-import CommentForm from "./CommentForm";
 
 function Article(props) {
   //console.log(props);
@@ -31,9 +30,8 @@ function Article(props) {
         {props.opened ? (
           <div>
             <section>{props.article.text}</section>
-
-            <CommentList comments={props.article.comments} />
-            <CommentForm />
+            {/* //до 5 урока было: <CommentList comments={props.article.comments} /> */}
+            <CommentList article={props.article} />
           </div>
         ) : null}
       </CSSTransitionGroup>

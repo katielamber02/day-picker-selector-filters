@@ -4,10 +4,19 @@ import {
   SET_DATE,
   DELETE_ARTICLE,
   RESET,
-  SET_ARTICLES
+  SET_ARTICLES,
+  ADD_COMMENT
 } from "../actionTypes";
 import axios from "axios";
 import { articles } from "../Belka/mocks/comments-belka";
+
+export const addComment = (comment, articleId) => {
+  return {
+    type: ADD_COMMENT,
+    payload: { comment, articleId },
+    generateId: true
+  };
+};
 
 export const reset = () => {
   return {

@@ -5,3 +5,4 @@ export const SET_DATE = "SET_DATE";
 export const DELETE_ARTICLE = "DELETE_ARTICLE";
 export const RESET = "RESET";
 export const SET_ARTICLES = "SET_ARTICLES";
+export const ADD_COMMENT = "ADD_COMMENT";

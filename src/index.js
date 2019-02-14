@@ -10,12 +10,14 @@ import reducers from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import "./config.js";
+import logger from "./middlewares/logger";
+import idGenerator from "./middlewares/idGenerator";
 
 import { createStore, applyMiddleware, compose } from "redux";
 
 const store = createStore(
   reducers,
-  compose(composeWithDevTools(applyMiddleware(thunk)))
+  compose(composeWithDevTools(applyMiddleware(thunk, logger, idGenerator)))
 );
 window.store = store;
 

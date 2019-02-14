@@ -12,6 +12,7 @@ import {
   remove
 } from "../actions/action-index";
 import { filteredArticlesSelector } from "../selectors";
+import { mapToArr } from "../helpers";
 
 class ArticleList extends Component {
   componentDidMount() {

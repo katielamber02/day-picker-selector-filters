@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Comment from "./Comment";
 import toggleOpen from "../hoc/toggleOpen";
+import CommentForm from "./CommentForm";
 
 class CommentList extends Component {
   static defaultProps = {
@@ -8,9 +9,18 @@ class CommentList extends Component {
   };
 
   render() {
-    const { comments, opened, toggleOpen } = this.props;
+    const { article, opened, toggleOpen } = this.props;
+    const { comments, id } = article;
+    //console.log("article", comments, id);
+
     const text = opened ? "close comments" : "open comments";
-    if (!comments.length) return <h3>No comments</h3>;
+    if (!comments || !comments.length)
+      return (
+        <div>
+          <h3>No comments</h3>
+          <CommentForm articleId={id} />
+        </div>
+      );
 
     return (
       <div>
@@ -22,7 +32,12 @@ class CommentList extends Component {
           {text}
         </button>
 
-        {opened ? comments.map(id => <Comment id={id} key={id} />) : null}
+        {opened
+          ? comments.map(commentId => (
+              <Comment id={commentId} key={commentId} />
+            ))
+          : null}
+        <CommentForm articleId={id} />
       </div>
     );
   }
